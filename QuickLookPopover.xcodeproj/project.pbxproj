@@ -101,6 +101,7 @@
 				TargetAttributes = {
 					03D100F320D3642B00929440 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1240;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -297,7 +298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshparnham.QuickLookPopover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -318,7 +319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshparnham.QuickLookPopover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
