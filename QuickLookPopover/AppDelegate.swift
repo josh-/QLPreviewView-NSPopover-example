@@ -11,32 +11,22 @@ import Quartz
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
     @IBOutlet weak var window: NSWindow!
     @IBOutlet var  popover: NSPopover!
-    @IBAction func showPopover(_ sender: AnyObject) {
-        let abutton: NSButton = sender as! NSButton
+
+    @IBAction func popoverButtonClicked(_ sender: NSButton) {
+        // Close popover if already open
         if (popover != nil) {
-             abutton.title = "Open Pop-over"
-                  popover.performClose(sender)    // close if open.
-                  popover = nil
-                  return;
-              }
-        abutton.title = "Close Pop-over"
-        popover = NSPopover()               // open pop-ver
+            sender.title = "Open Popover"
+            popover.performClose(sender)
+            popover = nil
+            return;
+        }
+        
+        // Otherwise, create a popover
+        sender.title = "Close Popover"
+        popover = NSPopover()
         popover.contentViewController = ViewController()
         popover.show(relativeTo: NSZeroRect, of: window.contentView!, preferredEdge: .maxX)
     }
-
-
-    
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
 }
-
