@@ -16,7 +16,7 @@ class ViewController: NSViewController {
 
         let item = JPQuickLookItem()
         item.previewItemURL = Bundle.main.url(forResource: "Yosemite", withExtension: "jpg")
-        previewView?.previewItem = item
+        view?.previewItem = item
 
         self.view = view!
     }
