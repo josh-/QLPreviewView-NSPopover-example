@@ -1,23 +1,38 @@
 //
-//  ViewController.swift
+//  AppDelegate.swift
 //  QuickLookPopover
 //
 //  Created by Josh Parnham on 15/6/18.
 //  Copyright © 2018 Josh Parnham. All rights reserved.
 //
 
-import AppKit
+import Cocoa
 import Quartz
 
-class ViewController: NSViewController {
-
-    override func loadView() {
-        let view = QLPreviewView(frame: NSRect(x: 0, y: 0, width: 400, height: 200), style: .normal)
-
-        let item = JPQuickLookItem()
-        item.previewItemURL = Bundle.main.url(forResource: "Yosemite", withExtension: "jpg")
-        previewView?.previewItem = item
-
-        self.view = view!
+@NSApplicationMain
+class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    @IBOutlet weak var window: NSWindow!
+    @IBOutlet var  popover: NSPopover!
+    @IBAction func showPopover(_ sender: AnyObject) {
+        if (popover != nil) {
+            popover.performClose(sender)
+            popover = nil
+            return;
+        }
+        popover = NSPopover()
+        popover.contentViewController = ViewController()
+        popover.show(relativeTo: NSZeroRect, of: window.contentView!, preferredEdge: .maxX)
     }
+
+
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Insert code here to initialize your application
+    }
+
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Insert code here to tear down your application
+    }
+
 }
